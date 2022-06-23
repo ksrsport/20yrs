@@ -3,7 +3,7 @@
 <head>
 <!-- meta -->
 <meta charset="utf-8">
-<title>QR�R�[�h����</title>
+<title>QRコード生成</title>
 <link rel="stylesheet" href="bootstrap.min.css">
 <!-- jQuery -->
 <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
@@ -67,24 +67,24 @@ input[type=qr-input]{
 
 <body>
 <div id="wrapper">
-    <h2>���H�s20�΂̏W��<br>��tQR�R�[�h����</h2>
+    <h2>釧路市20歳の集い<br>受付QRコード生成</h2>
     <div id="input">
-        <p>���O<br/><input name="qr-name" type="qr-input" class="code0" placeholder="�i��j���H�@���Y" /></p>
-        <p>�Z��<br/><input name="qr-address" type="qr-input" class="code0" placeholder="�i��j�������V�|�T" /></p>
-        <p>�d�b�ԍ�<br/><input name="qr-tel" type="qr-input" class="code0" placeholder="�i��j0154-00-0000" /></p>
-        <p>���[���A�h���X<br/><input name="qr-mail" type="qr-input" class="code0" placeholder="�i��jmail@city.kushiro.lg.jp" /></p>
-        <p id="plus" class="btn btn-danger">+ QR�R�[�h�𐶐�����</p>
+        <p>名前<br/><input name="qr-name" type="qr-input" class="code0" placeholder="（例）釧路　太郎" /></p>
+        <p>住所<br/><input name="qr-address" type="qr-input" class="code0" placeholder="（例）黒金町７－５" /></p>
+        <p>電話番号<br/><input name="qr-tel" type="qr-input" class="code0" placeholder="（例）0154-00-0000" /></p>
+        <p>メールアドレス<br/><input name="qr-mail" type="qr-input" class="code0" placeholder="（例）mail@city.kushiro.lg.jp" /></p>
+        <p id="plus" class="btn btn-danger">+ QRコードを生成する</p>
     </div>
 
-    <p id="reset" class="btn btn-primary">���Z�b�g</p>
+    <p id="reset" class="btn btn-primary">リセット</p>
 
     <div id="result">
         <ul id="qr">
 	</ul>
-	<p align="center"> ����QR�R�[�h���{�ݎ�t�̃��[�_�[</p>
-	<p align="center"> �œǂݍ��܂�������قł��܂��B</p>
+	<p align="center"> このQRコードを受付のリーダー</p>
+	<p align="center"> で読み込ませたら入場できます。</p>
     </div>
-�@�@<a href="kojin.txt" target="new">���l���̎�舵���ɂ���</a>
+　　<a href="kojin.txt" target="new">※個人情報の取り扱いについて</a>
 </div>
 
 
@@ -159,10 +159,10 @@ $(document).ready(function(){
         }
     };
 
-    //�y�[�W�Ǎ��ݎ��Ƀ������A
+    //ページ読込み時にメモ復帰
     readData();
 
-    //�t�H�[���ɍ��ڂ����͂��ꂽ��QR�R�[�h�𐶐�����
+    //フォームに項目が入力されたらQRコードを生成する
     $("#plus").on("click", function(){
         var text_name = $('input[name="qr-name"]').val();
         var text_address = $('input[name="qr-address"]').val();
@@ -179,7 +179,7 @@ $(document).ready(function(){
 	
     });
 
-    //���Z�b�g
+    //リセット
     $("#reset").on('click',function(){
         resetData();
     });
